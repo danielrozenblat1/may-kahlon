@@ -1,0 +1,142 @@
+.title {
+  font-weight: 800;
+  text-align: center;
+  font-size: 2rem;
+  direction: rtl;
+  font-family: 'Assistant';
+  margin: 2% auto;
+  width: 90%;
+  text-shadow: 0 1px 2px rgba(18, 66, 73, 0.15);
+}
+
+.description {
+  direction: rtl;
+  font-size: 1.4rem;
+  text-align: center;
+  margin: 2% auto;
+  width: 90%;
+  font-family: 'AssistantR';
+  text-shadow: 0 1px 2px rgba(18, 66, 73, 0.15);
+}
+
+/* מתחת ל-350px */
+@media (max-width: 349px) {
+  .title {
+    font-size: 1.3rem;
+    margin: 3% auto;
+    width: 95%;
+  }
+  
+  .description {
+    font-size: 0.95rem;
+    margin: 3% auto;
+    width: 95%;
+  }
+}
+
+/* 350-450px */
+@media (min-width: 350px) and (max-width: 450px) {
+  .title {
+    font-size: 1.5rem;
+    margin: 2.5% auto;
+    width: 92%;
+  }
+  
+  .description {
+    font-size: 1.1rem;
+    margin: 2.5% auto;
+    width: 92%;
+  }
+}
+
+/* 450-550px */
+@media (min-width: 451px) and (max-width: 550px) {
+  .title {
+    font-size: 1.65rem;
+    margin: 2.5% auto;
+    width: 90%;
+  }
+  
+  .description {
+    font-size: 1.15rem;
+    margin: 2.5% auto;
+    width: 90%;
+  }
+}
+
+/* 550-650px */
+@media (min-width: 551px) and (max-width: 650px) {
+  .title {
+    font-size: 1.75rem;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+  }
+}
+
+/* 650-750px */
+@media (min-width: 651px) and (max-width: 750px) {
+  .title {
+    font-size: 1.85rem;
+  }
+  
+  .description {
+    font-size: 1.3rem;
+  }
+}
+
+/* 750-850px */
+@media (min-width: 751px) and (max-width: 850px) {
+  .title {
+    font-size: 1.95rem;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+  }
+}
+
+/* 850-950px */
+@media (min-width: 851px) and (max-width: 950px) {
+  .title {
+    font-size: 2rem;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+  }
+}
+
+/* 950-1050px */
+@media (min-width: 951px) and (max-width: 1050px) {
+  .title {
+    font-size: 2.1rem;
+  }
+  
+  .description {
+    font-size: 1.45rem;
+  }
+}
+
+/* 1050-1150px */
+@media (min-width: 1051px) and (max-width: 1150px) {
+  .title {
+    font-size: 2.2rem;
+  }
+  
+  .description {
+    font-size: 1.2rem;
+  }
+}
+
+/* 1150-1250px */
+@media (min-width: 1151px) and (max-width: 1250px) {
+  .title {
+    font-size: 2.3rem;
+  }
+  
+  .description {
+    font-size: 1.3rem;
+  }
+}

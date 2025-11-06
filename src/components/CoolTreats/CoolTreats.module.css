@@ -1,0 +1,975 @@
+/* Container - Dark Background */
+.container {
+  position: relative;
+  min-height: 100vh;
+  padding: 8rem 1.5rem 6rem;
+  background: linear-gradient(135deg, #0a0806 0%, #1a1410 50%, #0a0806 100%);
+  background-attachment: fixed;
+  overflow: hidden;
+  direction: rtl;
+  font-family: 'Assistant', -apple-system, sans-serif;
+}
+
+/* Animated Background Pattern */
+.backgroundPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.4;
+}
+
+.backgroundPattern::before,
+.backgroundPattern::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(201, 168, 118, 0.15) 0%,
+    transparent 70%
+  );
+}
+
+.backgroundPattern::before {
+  width: 800px;
+  height: 800px;
+  top: -200px;
+  right: -400px;
+  animation: float 25s ease-in-out infinite;
+}
+
+.backgroundPattern::after {
+  width: 600px;
+  height: 600px;
+  bottom: -300px;
+  left: -300px;
+  animation: float 30s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  33% {
+    transform: translate(50px, -50px) rotate(120deg);
+  }
+  66% {
+    transform: translate(-30px, 30px) rotate(240deg);
+  }
+}
+
+/* Header */
+.header {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 5rem;
+  position: relative;
+  z-index: 2;
+}
+
+.mainTitle {
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: #f5f0e8;
+  line-height: 1.2;
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.03em;
+  font-family: 'Assistant', sans-serif;
+  opacity: 0;
+  position: relative;
+}
+
+
+.subtitle {
+  font-size: 1.3rem;
+  color: #b8b0a0;
+  line-height: 1.8;
+  font-weight: 400;
+  margin: 0;
+  opacity: 0;
+  font-family: 'AssistantR', 'Assistant', sans-serif;
+}
+
+/* Treatments Container */
+.treatmentsContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+/* Treatment Card - Accordion Style */
+.treatmentCard {
+  background: rgba(26, 20, 16, 0.6);
+  backdrop-filter: blur(20px) saturate(120%);
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid rgba(201, 168, 118, 0.15);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  width: 85%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.treatmentCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at top right,
+    rgba(201, 168, 118, 0.06) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.treatmentCard:hover::before {
+  opacity: 1;
+}
+
+.treatmentCard:hover {
+  border-color: rgba(201, 168, 118, 0.3);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+}
+
+/* Service Header */
+.serviceHeader {
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.serviceHeader:hover {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.headerContent {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+/* Service Image - Left Side */
+.serviceImage {
+  width: 120px;
+  height: 90px;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  background: rgba(26, 20, 16, 0.8);
+}
+
+.headerImage {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  padding: 4px;
+}
+
+.serviceImage .imagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(201, 168, 118, 0.08) 0%, rgba(201, 168, 118, 0.03) 100%);
+  border: 2px dashed rgba(201, 168, 118, 0.25);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.serviceHeader:hover .serviceImage .imagePlaceholder {
+  border-color: rgba(201, 168, 118, 0.4);
+  background: linear-gradient(135deg, rgba(201, 168, 118, 0.12) 0%, rgba(201, 168, 118, 0.05) 100%);
+}
+
+.serviceImage .imagePlaceholder svg {
+  opacity: 0.4;
+}
+
+/* Service Info - Center */
+.serviceInfo {
+  flex: 1;
+  text-align: right;
+}
+
+.serviceTitle {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #f5f0e8;
+  margin: 0 0 0.5rem 0;
+  font-family: 'Assistant', sans-serif;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.serviceDescription {
+  font-size: 1rem;
+  color: #b8b0a0;
+  margin: 0;
+  line-height: 1.5;
+  font-family: 'AssistantR', 'Assistant', sans-serif;
+}
+
+/* Toggle Icon - Right Side */
+.toggleIcon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 168, 118, 0.08);
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #c9a876;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(201, 168, 118, 0.3);
+  flex-shrink: 0;
+}
+
+.serviceHeader:hover .toggleIcon {
+  background: rgba(201, 168, 118, 0.15);
+  transform: scale(1.1);
+  border-color: rgba(201, 168, 118, 0.4);
+}
+
+/* Expandable Content */
+.drawerContent {
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.serviceDetails {
+  padding: 1.5rem;
+  display: flex; /* כדי שהכפתור יהיה מתחת לכל הרשת */
+  flex-direction: column;
+  gap: 1.5rem; /* הוספת מרווח בין הגריד לכפתור */
+}
+
+/* Content Grid */
+.contentGrid {
+  display: grid;
+  grid-template-columns: 500px 1fr;
+  gap: 3rem;
+}
+
+/* Image Section */
+.imageSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.mainImageWrapper {
+  width: 100%;
+  max-width: 500px;
+  background: rgba(26, 20, 16, 0.8);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(201, 168, 118, 0.2);
+}
+
+.mainDetailImage {
+  width: 100%;
+  height: auto;
+  min-height: 400px;
+  max-height: 600px;
+  object-fit: contain;
+  object-position: center;
+  padding: 12px;
+  display: block;
+}
+
+.imagePlaceholder {
+  width: 100%;
+  aspect-ratio: 3/4;
+  background: linear-gradient(135deg, rgba(201, 168, 118, 0.08) 0%, rgba(201, 168, 118, 0.03) 100%);
+  border-radius: 20px;
+  border: 2px dashed rgba(201, 168, 118, 0.25);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.imagePlaceholder::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(201, 168, 118, 0.15),
+    transparent
+  );
+  transition: left 0.8s ease;
+}
+
+.treatmentCard:hover .imagePlaceholder::before {
+  left: 100%;
+}
+
+.imagePlaceholder:hover {
+  border-color: rgba(201, 168, 118, 0.4);
+  background: linear-gradient(135deg, rgba(201, 168, 118, 0.12) 0%, rgba(201, 168, 118, 0.05) 100%);
+}
+
+.imagePlaceholder svg {
+  opacity: 0.4;
+}
+
+.imagePlaceholder p {
+  margin: 0;
+  font-size: 0.95rem;
+  color: #b8b0a0;
+  text-align: center;
+  padding: 0 1rem;
+  font-family: 'Assistant', sans-serif;
+}
+
+/* Gallery Container */
+.galleryContainer {
+  margin-top: 0.5rem;
+  padding: 1rem;
+  background: rgba(26, 26, 26, 0.4);
+  border-radius: 12px;
+  border: 1px solid rgba(201, 168, 118, 0.2);
+}
+
+.galleryContainer h4 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #e8dcc8;
+  margin: 0 0 0.5rem 0; /* הקטנתי מרווח */
+  font-family: 'Assistant', sans-serif;
+}
+
+.galleryTip { /* סגנון לטיפ החדש */
+  font-size: 0.85rem;
+  color: #c9a876;
+  margin: 0 0 1rem 0;
+  font-family: 'AssistantR', 'Assistant', sans-serif;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.imageGallery {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.galleryImage {
+  width: 100px;
+  height: 80px;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  cursor: pointer;
+  border: 1px solid rgba(201, 168, 118, 0.2);
+  background: rgba(26, 20, 16, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.galleryImage:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+  border-color: rgba(201, 168, 118, 0.4);
+}
+
+.galleryImageImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  padding: 4px;
+}
+
+.galleryImage svg {
+  opacity: 0.4;
+}
+
+/* CTA Button Wrapper */
+.ctaButtonWrapper {
+  margin-top: 0.5rem; /* הפחתת המרווח לאחר העברתו */
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding-top: 1rem; /* מרווח פנימי כדי להדגיש את ההפרדה */
+  border-top: 1px solid rgba(201, 168, 118, 0.1);
+}
+
+/* Info Section */
+.infoSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Detail Item */
+.detailItem {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(26, 26, 26, 0.6);
+  border-radius: 12px;
+  border-left: 4px solid rgba(201, 168, 118, 0.5);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.detailItem:hover {
+  transform: translateX(-3px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.detailItem strong {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #e8dcc8;
+  font-family: 'Assistant', sans-serif;
+}
+
+/* Detail List */
+.detailList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.detailList li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #d4cfc4;
+  font-family: 'AssistantR', 'Assistant', sans-serif;
+}
+
+.detailList li svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Image Overlay */
+.imageOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.92);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.closeButton {
+  position: absolute;
+  top: 2rem;
+  left: 2rem;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(201, 168, 118, 0.15);
+  border: 2px solid rgba(201, 168, 118, 0.4);
+  color: #c9a876;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10000;
+}
+
+.closeButton:hover {
+  background: rgba(201, 168, 118, 0.25);
+  border-color: rgba(201, 168, 118, 0.6);
+  transform: scale(1.1);
+}
+
+.overlayImageContainer {
+  max-width: 90vw;
+  max-height: 90vh;
+  background: rgba(26, 20, 16, 0.9);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 80px rgba(0, 0, 0, 0.6);
+  border: 2px solid rgba(201, 168, 118, 0.3);
+  cursor: default;
+}
+
+.overlayImage {
+  max-width: 100%;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 12px;
+}
+
+/* Bottom CTA */
+.bottomCTA {
+  text-align: center;
+  max-width: 700px;
+  margin: 5rem auto 0;
+  padding: 3rem 2.5rem;
+  background: rgba(201, 168, 118, 0.08);
+  backdrop-filter: blur(20px) saturate(120%);
+  border-radius: 24px;
+  border: 1px solid rgba(201, 168, 118, 0.2);
+  position: relative;
+  z-index: 2;
+}
+
+.bottomCTA::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 24px;
+  padding: 1px;
+  background: linear-gradient(135deg, 
+    rgba(201, 168, 118, 0.4) 0%, 
+    rgba(201, 168, 118, 0.1) 50%,
+    rgba(201, 168, 118, 0.4) 100%
+  );
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.bottomCTA h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #f5f0e8;
+  margin: 0 0 1rem 0;
+  font-family: 'Assistant', sans-serif;
+}
+
+.bottomCTA p {
+  font-size: 1.2rem;
+  color: #c9a876;
+  margin: 0;
+  font-weight: 500;
+  font-family: 'Assistant', sans-serif;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+  .contentGrid {
+    grid-template-columns: 450px 1fr;
+    gap: 2.5rem;
+  }
+
+  .mainImageWrapper {
+    max-width: 450px;
+  }
+
+  .mainDetailImage {
+    min-height: 350px;
+    max-height: 550px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .contentGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .imageSection {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .mainImageWrapper {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .mainDetailImage {
+    min-height: 320px;
+    max-height: 500px;
+  }
+
+  /* לוודא שהכפתור ממורכז נכון במסכים קטנים */
+  .ctaButtonWrapper {
+    justify-content: center; 
+    margin-top: 1.5rem; /* מרווח מהתכנים שמעל, שהם עכשיו שניים מתחת לזה */
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 5rem 1rem 4rem;
+  }
+
+  .mainTitle {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1.1rem;
+  }
+
+  .treatmentsContainer {
+    gap: 1.5rem;
+  }
+
+  .treatmentCard {
+    width: 90%;
+  }
+
+  .serviceHeader {
+    padding: 1.2rem;
+  }
+
+  .headerContent {
+    gap: 1rem;
+  }
+
+  .serviceImage {
+    width: 100px;
+    height: 75px;
+  }
+
+  .headerImage {
+    padding: 3px;
+  }
+
+  .serviceTitle {
+    font-size: 1.4rem;
+  }
+
+  .serviceDescription {
+    font-size: 0.9rem;
+  }
+
+  .toggleIcon {
+    width: 38px;
+    height: 38px;
+    font-size: 1.3rem;
+  }
+
+  .serviceDetails {
+    padding: 1.2rem;
+  }
+
+  .imageSection {
+    max-width: 100%;
+  }
+
+  .mainImageWrapper {
+    max-width: 100%;
+  }
+
+  .mainDetailImage {
+    min-height: 280px;
+    max-height: 450px;
+    padding: 10px;
+  }
+
+  .imageGallery {
+    gap: 0.6rem;
+  }
+
+  .galleryImage {
+    width: 85px;
+    height: 68px;
+  }
+
+  .galleryImageImg {
+    padding: 3px;
+  }
+
+  .ctaButtonWrapper {
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+  }
+
+  .infoSection {
+    gap: 1rem;
+  }
+
+  .detailItem {
+    padding: 0.9rem;
+  }
+
+  .detailItem strong {
+    font-size: 1.1rem;
+  }
+
+  .detailList li {
+    font-size: 0.9rem;
+  }
+
+  .closeButton {
+    top: 1.5rem;
+    left: 1.5rem;
+    width: 45px;
+    height: 45px;
+  }
+
+  .overlayImageContainer {
+    padding: 1.5rem;
+  }
+
+  .overlayImage {
+    max-height: 75vh;
+  }
+
+  .bottomCTA {
+    padding: 2.5rem 2rem;
+    margin-top: 4rem;
+  }
+
+  .bottomCTA h3 {
+    font-size: 1.7rem;
+  }
+
+  .bottomCTA p {
+    font-size: 1.1rem;
+  }
+
+  .backgroundPattern::before {
+    width: 500px;
+    height: 500px;
+  }
+
+  .backgroundPattern::after {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 4rem 0.75rem 3rem;
+  }
+
+  .header {
+    margin-bottom: 3rem;
+  }
+
+  .mainTitle {
+    font-size: 2rem;
+  }
+
+  .mainTitle::after {
+    width: 70px;
+    height: 4px;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .treatmentsContainer {
+    gap: 1.2rem;
+  }
+
+  .treatmentCard {
+    width: 95%;
+  }
+
+  .serviceHeader {
+    padding: 1rem;
+  }
+
+  .headerContent {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .serviceImage {
+    width: 100px;
+    height: 75px;
+    margin: 0 auto;
+  }
+
+  .headerImage {
+    padding: 2px;
+  }
+
+  .serviceInfo {
+    text-align: center;
+  }
+
+  .serviceTitle {
+    font-size: 1.2rem;
+  }
+
+  .serviceDescription {
+    font-size: 0.85rem;
+  }
+
+  .toggleIcon {
+    width: 36px;
+    height: 36px;
+    font-size: 1.2rem;
+    margin: 0 auto;
+  }
+
+  .serviceDetails {
+    padding: 1rem;
+    gap: 1rem; /* הקטנת המרווח */
+  }
+
+  .mainDetailImage {
+    min-height: 240px;
+    max-height: 380px;
+    padding: 8px;
+  }
+
+  .imagePlaceholder svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .imagePlaceholder p {
+    font-size: 0.85rem;
+  }
+
+  .galleryContainer h4 {
+    font-size: 1rem;
+  }
+  
+  .galleryTip {
+    font-size: 0.8rem;
+    margin: 0 0 0.8rem 0;
+  }
+
+  .imageGallery {
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .galleryImage {
+    width: 70px;
+    height: 56px;
+  }
+
+  .galleryImageImg {
+    padding: 2px;
+  }
+
+  .galleryImage svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .ctaButtonWrapper {
+    margin-top: 0.8rem;
+    padding-top: 0.8rem;
+  }
+
+  .infoSection {
+    gap: 1rem;
+  }
+
+  .detailItem {
+    padding: 0.8rem;
+  }
+
+  .detailItem strong {
+    font-size: 1rem;
+  }
+
+  .detailList {
+    gap: 0.4rem;
+  }
+
+  .detailList li {
+    font-size: 0.85rem;
+  }
+
+  .detailList li svg {
+    width: 12px;
+    height: 12px;
+  }
+
+  .imageOverlay {
+    padding: 1rem;
+  }
+
+  .closeButton {
+    top: 1rem;
+    left: 1rem;
+    width: 40px;
+    height: 40px;
+  }
+
+  .closeButton svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .overlayImageContainer {
+    padding: 1rem;
+  }
+
+  .overlayImage {
+    max-height: 70vh;
+  }
+
+  .bottomCTA {
+    padding: 2rem 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .bottomCTA h3 {
+    font-size: 1.2rem;
+  }
+
+  .bottomCTA p {
+    font-size: 1rem;
+  }
+
+  .backgroundPattern::before {
+    width: 400px;
+    height: 400px;
+  }
+
+  .backgroundPattern::after {
+    width: 300px;
+    height: 300px;
+  }
+}

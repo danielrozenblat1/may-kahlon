@@ -1,0 +1,310 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(circle at center, rgba(18, 66, 73, 0.15), rgba(13, 50, 56, 0.18));
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+}
+
+.popped {
+  position: relative;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(240, 248, 248, 0.9));
+  padding: 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 
+    0 8px 32px rgba(18, 66, 73, 0.15),
+    inset 0 2px 8px rgba(255, 255, 255, 0.8);
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  border: 1px solid rgba(18, 66, 73, 0.2);
+  overflow-y: auto;
+  margin: auto;
+}
+
+.popped::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(18, 66, 73, 0.6) 50%, 
+    transparent 100%);
+}
+
+.closeIcon {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  color: rgba(18, 66, 73, 0.7);
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.closeIcon:hover {
+  color: #124249;
+  transform: rotate(90deg);
+}
+
+.container {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  margin-top: 1rem;
+}
+
+.subtitle {
+  font-family: "AssistantR";
+  font-size: 0.875rem;
+  color: rgba(18, 66, 73, 0.7);
+  margin-bottom: 0.5rem;
+  direction: rtl;
+}
+
+.title {
+  font-family: "Assistant";
+  font-size: 1.8rem;
+  text-align: center;
+  direction: rtl;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #124249, #0d3238, #124249);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 800;
+}
+
+.formContainer {
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  justify-content: center;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 1rem;
+  max-width: 300px;
+}
+
+.input {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid rgba(18, 66, 73, 0.3);
+  direction: rtl;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  color: #2c2c2c;
+  font-family: "AssistantR";
+  outline: none;
+  transition: all 0.25s ease-in-out;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 2px 8px rgba(18, 66, 73, 0.1);
+  box-sizing: border-box;
+}
+
+.textarea {
+  width: 100%;
+  padding: 14px 16px;
+  border: 1.5px solid rgba(18, 66, 73, 0.3);
+  direction: rtl;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  color: #2c2c2c;
+  font-family: "AssistantR";
+  outline: none;
+  transition: all 0.25s ease-in-out;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  min-height: 100px;
+  resize: vertical;
+  box-shadow: 0 2px 8px rgba(18, 66, 73, 0.1);
+  box-sizing: border-box;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(18, 66, 73, 0.5);
+  transition: color 0.25s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  border-color: #124249;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 15px rgba(18, 66, 73, 0.2);
+  transform: translateY(-1px);
+}
+
+.input:focus::placeholder,
+.textarea:focus::placeholder {
+  color: rgba(18, 66, 73, 0.7);
+}
+
+.checkboxContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.checkboxLabel {
+  direction: rtl;
+  font-family: "AssistantR";
+  font-size: 0.85rem;
+  text-align: right;
+  color: #4a4a4a;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.checkbox {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.button {
+  font-family: 'AssistantR';
+  font-size: 1.1rem;
+  width: 100%;
+  color: #ffffff;
+  background: linear-gradient(135deg, 
+    rgba(18, 66, 73, 0.9) 0%, 
+    rgba(13, 50, 56, 0.95) 50%, 
+    rgba(18, 66, 73, 0.85) 100%);
+  padding: 15px 30px;
+  border: none;
+  border-radius: 12px;
+  direction: rtl;
+  margin-top: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 
+    0 4px 15px rgba(18, 66, 73, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  box-sizing: border-box;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.6s;
+}
+
+.button:hover::before {
+  left: 100%;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, 
+    rgba(13, 50, 56, 0.95) 0%, 
+    rgba(18, 66, 73, 0.9) 50%, 
+    rgba(13, 50, 56, 0.85) 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    0 6px 25px rgba(18, 66, 73, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.button:active {
+  transform: translateY(-1px) scale(1.01);
+  transition: all 0.1s ease;
+}
+
+/* Media Queries */
+@media only screen and (max-width: 350px) {
+  .popped {
+    padding: 1rem;
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .input, 
+  .textarea {
+    font-size: 0.9rem;
+    padding: 12px 14px;
+  }
+
+  .button {
+    padding: 12px 24px;
+    font-size: 1rem;
+  }
+
+  .inputGroup {
+    max-width: 100%;
+  }
+}
+
+@media only screen and (min-width: 351px) and (max-width: 450px) {
+  .popped {
+    width: 80%;
+    margin: 20px auto;
+  }
+
+  .title {
+    font-size: 1.6rem;
+  }
+}
+
+@media only screen and (min-width: 451px) and (max-width: 750px) {
+  .title {
+    font-size: 1.7rem;
+  }
+
+  .popped {
+    margin: 20px auto;
+  }
+}
+
+@media screen and (max-height: 600px) {
+  .popped {
+    max-height: 95vh;
+    padding: 1.5rem;
+  }
+  
+  .container {
+    margin-bottom: 1rem;
+  }
+  
+  .inputGroup {
+    gap: 0.8rem;
+  }
+}

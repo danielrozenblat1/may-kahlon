@@ -1,0 +1,508 @@
+/* BenefitHishtalmut.module.css - glassmorphism בז' אפרפר מבריק */
+
+.container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  width: 100%;
+  max-width: 600px;
+  margin: 2% auto;
+  padding: 0 1rem;
+  direction: rtl;
+  justify-content: center;
+  place-items: center;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 1rem;
+  width: 180px;
+  height: 180px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  
+  /* Glassmorphism בגוונים בז' אפרפר מבריקים - פחות שקוף */
+  background: linear-gradient(135deg, 
+    rgba(225, 205, 185, 0.35) 0%,
+    rgba(235, 220, 200, 0.45) 25%,
+    rgba(220, 200, 180, 0.4) 50%,
+    rgba(240, 225, 205, 0.5) 60%,
+    rgba(230, 215, 195, 0.45) 75%,
+    rgba(215, 195, 175, 0.35) 100%);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  
+  /* גבול מבריק עדין */
+  border: 1.5px solid rgba(240, 230, 215, 0.5);
+  
+  /* צללים מבריקים דומים לכפתור */
+  box-shadow: 
+    0 8px 32px rgba(210, 190, 170, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(180, 160, 140, 0.15),
+    0 4px 24px rgba(220, 200, 180, 0.2);
+}
+
+/* אפקט רקע בז' מטושטש עם ברק */
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  border-radius: 20px;
+  background: 
+    radial-gradient(ellipse at 75% 25%, rgba(240, 225, 205, 0.3) 0%, transparent 45%),
+    radial-gradient(ellipse at 25% 75%, rgba(220, 200, 180, 0.25) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 50%, rgba(235, 220, 200, 0.2) 0%, transparent 60%),
+    radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.2) 0%, transparent 30%);
+  filter: blur(10px);
+  opacity: 0.8;
+}
+
+/* אפקט זכוכית עליון מבריק */
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, 
+    transparent 0%, 
+    rgba(255, 255, 255, 0.6) 50%, 
+    transparent 100%);
+  pointer-events: none;
+  opacity: 1;
+}
+
+.imageWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  z-index: 1;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 70px;
+  color: rgba(100, 80, 70, 0.9);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 2;
+  position: relative;
+  filter: drop-shadow(0 2px 4px rgba(180, 160, 140, 0.3));
+}
+
+.icon > * {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.text {
+  font-family: 'AssistantR', sans-serif;
+  font-size: 1.05rem;
+  margin: 0;
+  color: rgb(0, 0, 0);
+  font-weight: 500;
+  text-align: center;
+  width: 95%;
+  z-index: 1;
+  
+  line-height: 1.4;
+}
+
+/* אפקט הובר מבריק */
+.card:hover {
+  transform: translateY(-8px) scale(1.03);
+  background: linear-gradient(135deg, 
+    rgba(225, 205, 185, 0.35) 0%,
+    rgba(235, 220, 200, 0.45) 25%,
+    rgba(220, 200, 180, 0.4) 50%,
+    rgba(240, 225, 205, 0.5) 60%,
+    rgba(230, 215, 195, 0.45) 75%,
+    rgba(215, 195, 175, 0.35) 100%);
+  border-color: rgba(240, 230, 215, 0.5);
+  box-shadow: 
+    0 8px 32px rgba(210, 190, 170, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -1px 0 rgba(180, 160, 140, 0.15),
+    0 4px 24px rgba(220, 200, 180, 0.2);
+}
+
+.card:hover .icon {
+  transform: scale(1.15);
+  filter: drop-shadow(0 2px 4px rgba(180, 160, 140, 0.3));
+}
+
+.card:hover::before {
+  opacity: 1;
+  filter: blur(12px);
+}
+
+.card:hover::after {
+  height: 1px;
+  opacity: 1;
+}
+
+/* 1150px-1250px - 4 עמודות גדולות */
+@media (min-width: 1150px) and (max-width: 1250px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+    max-width: 1100px;
+  }
+  
+  .card {
+    width: 200px;
+    height: 200px;
+    gap: 1.8rem;
+    padding: 2.2rem 1.2rem;
+    border-radius: 22px;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  }
+  
+  .card::before {
+    border-radius: 22px;
+  }
+  
+  .text {
+    font-size: 1.1rem;
+  }
+  
+  .imageWrapper,
+  .icon {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+/* 1050px-1150px - 4 עמודות */
+@media (min-width: 1050px) and (max-width: 1149px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.2rem;
+    max-width: 1000px;
+  }
+  
+  .card {
+    width: 190px;
+    height: 190px;
+    gap: 1.7rem;
+    padding: 2.1rem 1.1rem;
+    border-radius: 21px;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  }
+  
+  .card::before {
+    border-radius: 21px;
+  }
+  
+  .text {
+    font-size: 1.05rem;
+  }
+  
+  .imageWrapper,
+  .icon {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+/* 950px-1050px - 4 עמודות */
+@media (min-width: 950px) and (max-width: 1049px) {
+  .container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+  }
+  
+  .card {
+    width: 180px;
+    height: 180px;
+    gap: 1.5rem;
+    padding: 2rem 1rem;
+    border-radius: 20px;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  }
+  
+  .card::before {
+    border-radius: 20px;
+  }
+  
+  .text {
+    font-size: 1rem;
+  }
+  
+  .imageWrapper,
+  .icon {
+    width: 70px;
+    height: 70px;
+  }
+}
+
+/* 850px-950px - 3 עמודות */
+@media (min-width: 850px) and (max-width: 949px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.8rem;
+    max-width: 750px;
+  }
+  
+  .card {
+    width: 170px;
+    height: 170px;
+    gap: 1.4rem;
+    padding: 1.8rem 0.9rem;
+    border-radius: 19px;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  }
+  
+  .card::before {
+    border-radius: 19px;
+  }
+  
+  .text {
+    font-size: 0.95rem;
+  }
+  
+  .imageWrapper,
+  .icon {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+/* 750px-850px - 3 עמודות */
+@media (min-width: 750px) and (max-width: 849px) {
+  .container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.6rem;
+    max-width: 650px;
+  }
+  
+  .card {
+    width: 160px;
+    height: 160px;
+    gap: 1.3rem;
+    padding: 1.6rem 0.8rem;
+    border-radius: 18px;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  }
+  
+  .card::before {
+    border-radius: 18px;
+  }
+  
+  .text {
+    font-size: 0.9rem;
+  }
+  
+  .imageWrapper,
+  .icon {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* 650px-750px - 2 עמודות */
+@media (min-width: 650px) and (max-width: 749px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+    max-width: 500px;
+  }
+  
+  .card {
+    width: 180px;
+    height: 180px;
+    gap: 1.5rem;
+    padding: 1.8rem 1rem;
+    border-radius: 20px;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  }
+  
+  .card::before {
+    border-radius: 20px;
+  }
+  
+  .text {
+    font-size: 1.05rem;
+    max-width: 150px;
+  }
+  
+  .imageWrapper,
+  .icon {
+    width: 65px;
+    height: 65px;
+  }
+}
+
+/* 550px-650px - 2 עמודות */
+@media (min-width: 550px) and (max-width: 649px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+    max-width: 450px;
+  }
+  
+  .card {
+    width: 170px;
+    height: 170px;
+    gap: 1.4rem;
+    padding: 1.6rem 0.9rem;
+    border-radius: 19px;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  }
+  
+  .card::before {
+    border-radius: 19px;
+  }
+  
+  .text {
+    font-size: 1rem;
+    max-width: 140px;
+  }
+  
+  .imageWrapper,
+  .icon {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+/* 450px-550px - 2 עמודות */
+@media (min-width: 450px) and (max-width: 549px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+    max-width: 400px;
+  }
+  
+  .card {
+    width: 160px;
+    height: 160px;
+    gap: 1.2rem;
+    padding: 1.4rem 0.8rem;
+    border-radius: 18px;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  }
+  
+  .card::before {
+    border-radius: 18px;
+  }
+  
+  .text {
+    font-size: 0.85rem;
+    max-width: 130px;
+  }
+  
+  .imageWrapper,
+  .icon {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+/* 350px-450px - 2 עמודות קטנות */
+@media (min-width: 350px) and (max-width: 449px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+    max-width: 340px;
+    padding: 0 0.5rem;
+  }
+  
+  .card {
+    width: 150px;
+    height: 150px;
+    gap: 1rem;
+    padding: 1.2rem 0.6rem;
+    border-radius: 16px;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  }
+  
+  .card::before {
+    border-radius: 16px;
+    filter: blur(10px);
+  }
+  
+  .text {
+    font-size: 0.85rem;
+    width: 95%;
+  }
+  
+  .imageWrapper,
+  .icon {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+/* מתחת ל-350px - 2 עמודות מאוד קטנות */
+@media (max-width: 349px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    max-width: 280px;
+    padding: 0 0.3rem;
+  }
+  
+  .card {
+    width: 125px;
+    height: 125px;
+    gap: 0.8rem;
+    padding: 1rem 0.4rem;
+    border-radius: 14px;
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+  }
+  
+  .card::before {
+    border-radius: 14px;
+    filter: blur(8px);
+  }
+  
+  .text {
+    font-size: 0.75rem;
+    line-height: 1.2;
+    max-width: 100px;
+  }
+  
+  .imageWrapper,
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .card:hover {
+    transform: translateY(-3px) scale(1.01);
+  }
+  
+  .card:hover .icon {
+    transform: scale(1.1);
+  }
+}

@@ -1,0 +1,433 @@
+.navbar {
+  position: fixed;
+  width: 70%;
+  max-width: 1200px;
+  height: 80px;
+  z-index: 1000;
+  box-sizing: border-box;
+  font-family: "AssistantR";
+  margin: 20px auto;
+  border-radius: 40px;
+  transition: all 0.5s cubic-bezier(0.25, 0.1, 0.25, 1);
+  opacity: 0;
+  transform: translateY(-30px);
+  left: 15%;
+  right: 15%;
+  top: 20px;
+  background: #7B0E14;
+  color: #D9CEB5;
+  border: 1px solid #D9CEB5;
+  box-shadow: 
+    inset 0 2px 8px rgba(0, 0, 0, 0.08),
+    inset 0 4px 16px rgba(0, 0, 0, 0.05),
+    0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Visibility classes */
+.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hidden {
+  opacity: 0;
+  transform: translateY(-30px);
+  pointer-events: none;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.navbarInner {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 30px;
+  border-radius: 40px;
+  background: transparent;
+}
+
+/* Logo styles */
+.logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo img {
+  height: 60px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+  animation: pulseLogo 3s ease-in-out infinite;
+}
+
+@keyframes pulseLogo {
+  0%, 100% { 
+    filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3)); 
+  }
+  50% { 
+    filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.5)); 
+  }
+}
+
+.mobileLogo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mobileLogo img {
+  height: 70px;
+  object-fit: cover;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.3));
+}
+
+/* Menu button */
+.menuButton {
+  position: relative;
+  background: #D9CEB5;
+  color: #7B0E14;
+  border: 1px solid #D9CEB5;
+  font-family: "AssistantR";
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 8px 20px;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  border-radius: 30px;
+  margin-right: 50px;
+  min-width: 160px;
+  height: 45px;
+  transition: all 0.3s;
+}
+
+.menuButton:hover {
+  transform: translateY(-1px);
+  background: #fff;
+  color: #7B0E14;
+}
+
+.buttonContent {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  direction: rtl;
+  height: 100%;
+}
+
+.buttonText {
+  display: block;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* Mobile menu styles */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 1001;
+  animation: revealMenu 0.5s ease-out forwards;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobileMenu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(123, 14, 20, 0.9);
+  z-index: -1;
+  backdrop-filter: blur(15px);
+}
+
+.mobileMenuHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background: rgba(123, 14, 20, 0.8);
+  border-bottom: 1px solid #D9CEB5;
+}
+
+.closeButton {
+  color: #D9CEB5;
+  font-size: 1.5rem;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(123, 14, 20, 0.5);
+}
+
+.closeButton:hover {
+  background-color: rgba(123, 14, 20, 0.7);
+  transform: rotate(90deg);
+}
+
+.mobileMenuLogo img {
+  height: 60px;
+  object-fit: contain;
+}
+
+.mobileMenuContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 25px;
+  background: rgba(123, 14, 20, 0.5);
+}
+
+/* Form Overlay */
+.formOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+
+.formModal {
+  width: 95%;
+  max-width: 600px;
+  background: #7B0E14;
+  border-radius: 1rem;
+  border: 1px solid #D9CEB5;
+  color: #D9CEB5;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+}
+
+.formHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 2rem 1rem;
+  border-bottom: 1px solid #D9CEB5;
+}
+
+.formCloseButton {
+  background: none;
+  border: none;
+  color: #D9CEB5;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.formCloseButton:hover {
+  background: rgba(217, 206, 181, 0.2);
+  transform: rotate(90deg);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem 2rem;
+  direction: rtl;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.label {
+  font-family: 'AssistantR', sans-serif;
+  font-size: 1.1rem;
+  color: #D9CEB5;
+}
+
+.input,
+.textarea {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid #D9CEB5;
+  color: #D9CEB5;
+  font-family: 'AssistantR', sans-serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border: 1px solid #D9CEB5;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: rgba(217, 206, 181, 0.6);
+}
+
+.inputError {
+  border-color: rgba(255, 69, 58, 0.6);
+  background: rgba(255, 245, 245, 0.1);
+}
+
+.errorText {
+  color: rgba(255, 179, 179, 0.9);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+.submitButton {
+  padding: 0.85rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  background: #D9CEB5;
+  color: #7B0E14;
+  font-family: 'AssistantR', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.submitButton:hover:not(:disabled) {
+  background: #fff;
+  color: #7B0E14;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.submitting {
+  background: #D9CEB5;
+  opacity: 0.8;
+  cursor: not-allowed;
+}
+
+.submitted {
+  background: #4CAF50;
+  opacity: 0.9;
+  color: #fff;
+}
+
+/* Responsive Breakpoints */
+@media (min-width: 1200px) {
+  .formModal {
+    width: 45%;
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+  .formModal {
+    width: 55%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 899px) {
+  .formModal {
+    width: 70%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .navbar {
+    width: 80%;
+    left: 10%;
+    right: 10%;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    width: 90%;
+    left: 5%;
+    right: 5%;
+  }
+  
+  .navbarInner {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 767px) {
+  .formModal {
+    width: 95%;
+    max-height: 95vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    width: 95%;
+    height: 70px;
+    left: 2.5%;
+    right: 2.5%;
+  }
+  
+  .navbarInner {
+    padding: 0 15px;
+  }
+  
+  .logo img {
+    height: 50px;
+  }
+  
+  .menuButton {
+    min-width: 140px;
+    font-size: 1rem;
+    padding: 6px 15px;
+    height: 40px;
+  }
+  
+  .formModal {
+    width: 95%;
+    max-height: 95vh;
+  }
+  
+  .label {
+    font-size: 1rem;
+  }
+  
+  .input,
+  .textarea {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .submitButton {
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+  }
+}

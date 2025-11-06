@@ -1,0 +1,358 @@
+.container {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    overflow-x: hidden;
+}
+  
+.description {
+    font-size: 1.2rem;
+    font-family: "AssistantR";
+    text-align: center;
+    margin: 1% auto;
+    direction: rtl;
+    font-weight: 300;
+    width: 90%;
+    color: #503B38;
+}
+  
+.imageContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: flex;
+}
+  
+.backgroundImage {
+    flex: 1;
+    height: 100%;
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+  
+.leftImage, .rightImage {
+    display: none;
+}
+  
+.centerImage {
+    background-image: url('../images/מאי\ כחלון\ תמונה\ ראשית.png');
+}
+  
+.contentBox {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    padding: 1rem;
+    width: 90%;
+    backdrop-filter: blur(15px);
+    background: rgba(185, 185, 185, 0.15);
+    border-radius: 15px;
+    z-index: 1;
+    margin-bottom: 1%;
+    bottom: 2%;
+    box-shadow: 
+        0 4px 30px rgba(0, 0, 0, 0.1),
+        inset 0 0 20px rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translate(-50%, 20px);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+  
+.title {
+    font-family: 'Aboreto', serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    background: linear-gradient(
+        45deg,
+        rgba(225, 205, 185, 1) 0%,
+        rgba(235, 220, 200, 1) 15%,
+        rgba(240, 225, 205, 1) 30%,
+        rgba(230, 215, 195, 1) 45%,
+        rgba(220, 200, 180, 1) 60%,
+        rgba(235, 220, 200, 1) 75%,
+        rgba(225, 205, 185, 1) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    animation: shimmer 20s infinite linear;
+    background-size: 200% auto;
+    text-shadow: 0 2px 4px rgba(80, 60, 50, 0.6),
+                 0 4px 8px rgba(60, 45, 35, 0.4),
+                 0 1px 2px rgba(100, 80, 70, 0.5);
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+  
+@media (max-width: 350px) {
+    .contentBox {
+        padding: 0.5rem;
+        width: 90%;
+        bottom: 2%;
+    }
+    .title {
+        font-size: 2.2rem;
+        background: linear-gradient(
+            45deg,
+            rgba(225, 205, 185, 1) 0%,
+            rgba(235, 220, 200, 1) 15%,
+            rgba(240, 225, 205, 1) 30%,
+            rgba(230, 215, 195, 1) 45%,
+            rgba(220, 200, 180, 1) 60%,
+            rgba(235, 220, 200, 1) 75%,
+            rgba(225, 205, 185, 1) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 200% auto;
+        text-shadow: 0 2px 4px rgba(80, 60, 50, 0.6),
+                     0 4px 8px rgba(60, 45, 35, 0.4),
+                     0 1px 2px rgba(100, 80, 70, 0.5);
+    }
+}
+  
+@media (min-width: 350px) {
+    .contentBox {
+        padding: 1.5rem 0.7rem;
+        width: 90%;
+        bottom: 2%;
+    }
+    .title {
+        font-size: 2.4rem;
+        background: linear-gradient(
+            45deg,
+            rgba(225, 205, 185, 1) 0%,
+            rgba(235, 220, 200, 1) 15%,
+            rgba(240, 225, 205, 1) 30%,
+            rgba(230, 215, 195, 1) 45%,
+            rgba(220, 200, 180, 1) 60%,
+            rgba(235, 220, 200, 1) 75%,
+            rgba(225, 205, 185, 1) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 200% auto;
+        text-shadow: 0 2px 4px rgba(80, 60, 50, 0.6),
+                     0 4px 8px rgba(60, 45, 35, 0.4),
+                     0 1px 2px rgba(100, 80, 70, 0.5);
+    }
+}
+  
+@media (min-width: 450px) {
+    .contentBox {
+        padding: 1.5rem;
+        width: 85%;
+        bottom: 2%;
+    }
+    .title {
+        font-size: 2.5rem;
+        background: linear-gradient(
+            45deg,
+            rgba(225, 205, 185, 1) 0%,
+            rgba(235, 220, 200, 1) 15%,
+            rgba(240, 225, 205, 1) 30%,
+            rgba(230, 215, 195, 1) 45%,
+            rgba(220, 200, 180, 1) 60%,
+            rgba(235, 220, 200, 1) 75%,
+            rgba(225, 205, 185, 1) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 200% auto;
+        text-shadow: 0 2px 4px rgba(80, 60, 50, 0.6),
+                     0 4px 8px rgba(60, 45, 35, 0.4),
+                     0 1px 2px rgba(100, 80, 70, 0.5);
+    }
+}
+  
+@media (min-width: 550px) {
+    .leftImage {
+        display: block;
+        background-image: url('../images/מאי\ חלון\ תמונה\ צדדית.png');
+       
+    }
+    .rightImage {
+        display: block;
+        background-image: url('../images/מאי\ חלון\ תמונה\ צדדית.png');
+       
+    }
+    .contentBox {
+        padding: 1.8rem;
+        width: 80%;
+        bottom: 2%;
+    }
+    .title {
+        font-size: 2.4rem;
+        margin-bottom: 1.5rem;
+        background: linear-gradient(
+            45deg,
+            rgba(225, 205, 185, 1) 0%,
+            rgba(235, 220, 200, 1) 15%,
+            rgba(240, 225, 205, 1) 30%,
+            rgba(230, 215, 195, 1) 45%,
+            rgba(220, 200, 180, 1) 60%,
+            rgba(235, 220, 200, 1) 75%,
+            rgba(225, 205, 185, 1) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 200% auto;
+        text-shadow: 0 2px 4px rgba(80, 60, 50, 0.6),
+                     0 4px 8px rgba(60, 45, 35, 0.4),
+                     0 1px 2px rgba(100, 80, 70, 0.5);
+    }
+}
+  
+@media (min-width: 650px) {
+    .contentBox {
+        padding: 2rem;
+        width: 75%;
+        bottom: 2%;
+    }
+    .title {
+        font-size: 2.6rem;
+        background: linear-gradient(
+            45deg,
+            rgba(225, 205, 185, 1) 0%,
+            rgba(235, 220, 200, 1) 15%,
+            rgba(240, 225, 205, 1) 30%,
+            rgba(230, 215, 195, 1) 45%,
+            rgba(220, 200, 180, 1) 60%,
+            rgba(235, 220, 200, 1) 75%,
+            rgba(225, 205, 185, 1) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 200% auto;
+        text-shadow: 0 2px 4px rgba(80, 60, 50, 0.6),
+                     0 4px 8px rgba(60, 45, 35, 0.4),
+                     0 1px 2px rgba(100, 80, 70, 0.5);
+    }
+}
+  
+@media (min-width: 750px) {
+    .contentBox {
+        width: 70%;
+        bottom: 2%;
+    }
+    .title {
+        font-size: 2.8rem;
+        background: linear-gradient(
+            45deg,
+            rgba(225, 205, 185, 1) 0%,
+            rgba(235, 220, 200, 1) 15%,
+            rgba(240, 225, 205, 1) 30%,
+            rgba(230, 215, 195, 1) 45%,
+            rgba(220, 200, 180, 1) 60%,
+            rgba(235, 220, 200, 1) 75%,
+            rgba(225, 205, 185, 1) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 200% auto;
+        text-shadow: 0 2px 4px rgba(80, 60, 50, 0.6),
+                     0 4px 8px rgba(60, 45, 35, 0.4),
+                     0 1px 2px rgba(100, 80, 70, 0.5);
+    }
+}
+  
+@media (min-width: 850px) {
+    .contentBox {
+        width: 65%;
+        bottom: 2%;
+    }
+}
+  
+@media (min-width: 950px) {
+    .contentBox {
+        width: 60%;
+        bottom: 2%;
+    }
+    .title {
+        font-size: 3rem;
+        background: linear-gradient(
+            45deg,
+            rgba(225, 205, 185, 1) 0%,
+            rgba(235, 220, 200, 1) 15%,
+            rgba(240, 225, 205, 1) 30%,
+            rgba(230, 215, 195, 1) 45%,
+            rgba(220, 200, 180, 1) 60%,
+            rgba(235, 220, 200, 1) 75%,
+            rgba(225, 205, 185, 1) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 200% auto;
+        text-shadow: 0 2px 4px rgba(80, 60, 50, 0.6),
+                     0 4px 8px rgba(60, 45, 35, 0.4),
+                     0 1px 2px rgba(100, 80, 70, 0.5);
+    }
+}
+  
+@media (min-width: 1050px) {
+    .contentBox {
+        width: 30%;
+        bottom: 2%;
+    }
+}
+  
+@media (min-width: 1150px) {
+    .title {
+        font-size: 3rem;
+        background: linear-gradient(
+            45deg,
+            rgba(225, 205, 185, 1) 0%,
+            rgba(235, 220, 200, 1) 15%,
+            rgba(240, 225, 205, 1) 30%,
+            rgba(230, 215, 195, 1) 45%,
+            rgba(220, 200, 180, 1) 60%,
+            rgba(235, 220, 200, 1) 75%,
+            rgba(225, 205, 185, 1) 100%
+        );
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        background-size: 200% auto;
+        text-shadow: 0 2px 4px rgba(80, 60, 50, 0.6),
+                     0 4px 8px rgba(60, 45, 35, 0.4),
+                     0 1px 2px rgba(100, 80, 70, 0.5);
+    }
+    .contentBox {
+        width: 29%;
+        bottom: 5%;
+    }
+}
