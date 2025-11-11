@@ -5,9 +5,9 @@ import styles from './FirstScreenNew.module.css';
 
 import lips from "../icons/wired-outline-406-study-graduation-hover-pinch (4).json"
 import needle from "../icons/wired-outline-775-needle-hover-pinch (5).json"
-import middleImage from "../images/מאי כחלון תמונה ראשית.png";
-import rightImage from "../images/מאי כחלון תמונה ראשית.png";
-import leftImage from "../images/מאי כחלון תמונה ראשית.png";
+import middleImage from "../images/מאי כחלון תמונת פתיחה.png";
+import rightImage from "../images/מאי כחלון תמונת פתיחה.png";
+import leftImage from "../images/מאי כחלון תמונת פתיחה.png";
 import Loader from '../components/loader/Loader';
 import PinkScrollButton from '../components/buttonCopy/Button';
 

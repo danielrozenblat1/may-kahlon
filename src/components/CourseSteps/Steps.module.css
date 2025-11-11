@@ -1,7 +1,7 @@
 /* Container with background */
 .container {
   position: relative;
-  min-height: 100vh;
+
   padding: 6rem 1.5rem 4rem;
   background: linear-gradient(135deg, #0a0806 0%, #1a1410 50%, #0a0806 100%);
   background-attachment: fixed;
@@ -25,57 +25,47 @@
   pointer-events: none;
 }
 
-/* Curved SVG Path */
-.pathSvg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 1;
-  opacity: 0.8;
-}
-
-/* Session Wrapper */
-.sessionWrapper {
-  position: relative;
-  margin-bottom: 6rem;
-}
-
-/* Big Number Behind Card */
-.bigNumber {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 25rem;
-  font-weight: 900;
-  color: rgba(201, 168, 118, 0.08);
-  line-height: 1;
-  pointer-events: none;
-  z-index: 0;
-  user-select: none;
-  filter: blur(8px);
-  font-family: 'Assistant', sans-serif;
-}
-
-/* Session Card - Minimal */
-.sessionCard {
-  position: relative;
-  max-width: 650px;
+/* Accordion Wrapper */
+.accordionWrapper {
+  max-width: 900px;
   margin: 0 auto;
-  padding: 2.5rem 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Drawer Wrapper */
+.drawerWrapper {
+  position: relative;
   background: rgba(245, 240, 232, 0.02);
   backdrop-filter: blur(20px) saturate(120%);
   border-radius: 20px;
   border: 1px solid rgba(201, 168, 118, 0.1);
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-  z-index: 2;
+  overflow: hidden;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.sessionCard::before {
+.drawerWrapper:hover {
+  border-color: rgba(201, 168, 118, 0.2);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+}
+
+/* Drawer Header */
+.drawerHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem 2.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.drawerHeader::before {
   content: '';
   position: absolute;
   top: 0;
@@ -85,24 +75,117 @@
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(201, 168, 118, 0.05),
+    rgba(201, 168, 118, 0.03),
     transparent
   );
-  transition: left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Session Header */
+.drawerHeader:hover::before {
+  left: 100%;
+}
+
+.drawerHeaderOpen {
+  background: rgba(201, 168, 118, 0.02);
+}
+
+.drawerHeaderContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* Drawer Title Section */
+.drawerTitleSection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.drawerNumber {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #c9a876;
+  background: rgba(201, 168, 118, 0.15);
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  letter-spacing: 1.5px;
+  font-family: 'Assistant', sans-serif;
+}
+
+.drawerTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f5f0e8;
+  letter-spacing: -0.02em;
+  margin: 0;
+  font-family: 'Assistant', sans-serif;
+}
+
+/* Drawer Meta */
+.drawerMeta {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.metaItem {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #b8b0a0;
+  font-weight: 400;
+  font-family: 'AssistantR', 'Assistant', sans-serif;
+}
+
+.metaItem svg {
+  color: #c9a876;
+  opacity: 0.7;
+}
+
+/* Chevron Icon */
+.chevronIcon {
+  flex-shrink: 0;
+  color: #c9a876;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.drawerHeader:hover .chevronIcon {
+  opacity: 1;
+}
+
+/* Drawer Content */
+.drawerContent {
+  overflow: hidden;
+}
+
+.drawerInner {
+  padding: 0 2.5rem 2.5rem;
+}
+
+/* Session Section */
+.sessionSection {
+  margin-bottom: 2.5rem;
+}
+
+.sessionSection:last-of-type {
+  margin-bottom: 2rem;
+}
+
 .sessionHeader {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 2rem;
-  padding-bottom: 1.2rem;
-  border-bottom: 1px solid rgba(201, 168, 118, 0.1);
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(201, 168, 118, 0.08);
 }
 
-.sessionNum {
-  font-size: 0.8rem;
+.sessionBadge {
+  font-size: 0.7rem;
   font-weight: 600;
   color: #c9a876;
   background: rgba(201, 168, 118, 0.1);
@@ -113,7 +196,7 @@
 }
 
 .sessionTitle {
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   font-weight: 600;
   color: #f5f0e8;
   letter-spacing: -0.01em;
@@ -121,12 +204,12 @@
   font-family: 'Assistant', sans-serif;
 }
 
-/* Items List - Larger and more readable */
+/* Items List */
 .itemsList {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.6rem;
   margin: 0;
   padding: 0;
 }
@@ -135,13 +218,13 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  padding: 0.85rem 1.2rem;
-  font-size: 1rem;
+  padding: 0.75rem 1.1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   color: #b8b0a0;
   background: rgba(201, 168, 118, 0.02);
   border-radius: 12px;
-  border-right: 2px solid rgba(201, 168, 118, 0.15);
+  border-right: 2px solid rgba(201, 168, 118, 0.12);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   font-weight: 400;
@@ -149,15 +232,15 @@
 }
 
 .item:hover {
-  transform: translateX(-5px);
+  transform: translateX(-4px);
   background: rgba(201, 168, 118, 0.04);
-  border-right-color: rgba(201, 168, 118, 0.3);
+  border-right-color: rgba(201, 168, 118, 0.25);
 }
 
 .itemIcon {
   flex-shrink: 0;
   color: #c9a876;
-  opacity: 0.7;
+  opacity: 0.65;
   transition: opacity 0.3s ease;
 }
 
@@ -165,24 +248,19 @@
   opacity: 1;
 }
 
-/* Bonus Card */
-.bonusCard {
-  position: relative;
-  max-width: 650px;
-  margin: 2rem auto 4rem auto;
-  padding: 2rem 2.5rem;
+/* Bonus Section */
+.bonusSection {
+  padding: 1.8rem 2rem;
   background: rgba(201, 168, 118, 0.04);
   backdrop-filter: blur(20px) saturate(120%);
-  border-radius: 20px;
+  border-radius: 16px;
   border: 1px solid rgba(201, 168, 118, 0.15);
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   text-align: center;
-  z-index: 2;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .bonusIcon {
@@ -192,7 +270,7 @@
 }
 
 .bonusText {
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
   color: #b8b0a0;
   margin: 0;
@@ -202,49 +280,42 @@
 
 .highlight {
   color: #c9a876;
-  font-weight: 500;
+  font-weight: 600;
   font-family: 'Assistant', sans-serif;
 }
 
-/* --- Register Button Styles --- */
-
-.buttonWrapper {
+/* Button Section */
+.buttonSection {
   text-align: center;
-  margin-top: 4rem;
-  margin-bottom: 6rem;
-  min-height: 80px;
 }
 
+/* Register Button */
 .registerButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.8rem;
-  padding: 1.1rem 2.5rem;
-  font-size: 1.1rem;
+  padding: 1rem 2.2rem;
+  font-size: 1rem;
   font-weight: 700;
   color: #1a1410;
   text-decoration: none;
   border-radius: 50px;
   cursor: pointer;
-  z-index: 3;
   position: relative;
   overflow: hidden;
   letter-spacing: 0.5px;
   font-family: 'Assistant', sans-serif;
-
-  /* רקע זהוב מיוחד */
   background: linear-gradient(145deg, #c9a876 0%, #e8dcc8 50%, #c9a876 100%);
   border: 2px solid #a88a64;
   box-shadow: 
     0 4px 15px rgba(201, 168, 118, 0.4),
     0 0 0 4px rgba(201, 168, 118, 0.2);
-    
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .registerButton:hover {
-  transform: translateY(-3px) scale(1.02);
+  transform: translateY(-2px) scale(1.02);
   box-shadow: 
     0 8px 25px rgba(201, 168, 118, 0.6),
     0 0 0 6px rgba(201, 168, 118, 0.3);
@@ -262,61 +333,120 @@
   color: #1a1410;
 }
 
+/* Help Button - כפתור העזרה המרכזי */
+.helpButtonWrapper {
+  max-width: 900px;
+  margin: 3rem auto 0;
+  text-align: center;
+}
+
+.helpButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  padding: 1.2rem 2.8rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #1a1410;
+  text-decoration: none;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  letter-spacing: 0.5px;
+  font-family: 'Assistant', sans-serif;
+  background: linear-gradient(145deg, #c9a876 0%, #e8dcc8 50%, #c9a876 100%);
+  border: 2px solid #a88a64;
+  box-shadow: 
+    0 6px 20px rgba(201, 168, 118, 0.5),
+    0 0 0 5px rgba(201, 168, 118, 0.25);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.helpButton:hover {
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 
+    0 10px 30px rgba(201, 168, 118, 0.7),
+    0 0 0 7px rgba(201, 168, 118, 0.35);
+}
+
+.helpButton:active {
+  transform: translateY(0) scale(1.0);
+  box-shadow: 
+    0 3px 12px rgba(201, 168, 118, 0.4),
+    0 0 0 3px rgba(201, 168, 118, 0.15);
+}
+
+.helpButtonIcon {
+  flex-shrink: 0;
+  color: #1a1410;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .container {
     padding: 4rem 1rem 3rem;
   }
 
-  .sessionWrapper {
-    margin-bottom: 4rem;
+  .accordionWrapper {
+    gap: 1.5rem;
   }
 
-  .bigNumber {
-    font-size: 15rem;
+  .drawerHeader {
+    padding: 1.8rem 2rem;
   }
 
-  .sessionCard {
-    padding: 2rem 2rem;
+  .drawerHeaderContent {
+    gap: 1rem;
   }
 
-  .sessionTitle {
-    font-size: 1.25rem;
+  .drawerTitle {
+    font-size: 1.3rem;
+  }
+
+  .drawerMeta {
+    gap: 1.2rem;
+  }
+
+  .metaItem {
+    font-size: 0.85rem;
+  }
+
+  .drawerInner {
+    padding: 0 2rem 2rem;
+  }
+
+  .sessionSection {
+    margin-bottom: 2rem;
   }
 
   .item {
-    padding: 0.9rem 1.1rem;
-    font-size: 1.05rem;
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+  }
+
+  .bonusSection {
+    padding: 1.5rem 1.8rem;
     gap: 0.9rem;
   }
 
-  .itemIcon {
-    width: 17px;
-    height: 17px;
-  }
-
-  .bonusCard {
-    padding: 1.8rem 2rem;
-    margin-bottom: 3rem;
-  }
-
   .bonusText {
-    font-size: 1.05rem;
-  }
-
-  .bonusIcon {
-    width: 22px;
-    height: 22px;
+    font-size: 0.95rem;
   }
 
   .registerButton {
-    padding: 1rem 2.2rem;
-    font-size: 1.05rem;
-    gap: 0.75rem;
+    padding: 0.95rem 2rem;
+    font-size: 0.95rem;
   }
 
-  .buttonWrapper {
-    margin-top: 3rem;
+  .helpButtonWrapper {
+    margin: 2.5rem auto 0;
+  }
+
+  .helpButton {
+    padding: 1.1rem 2.4rem;
+    font-size: 1rem;
   }
 }
 
@@ -325,33 +455,119 @@
     padding: 3rem 0.75rem 2rem;
   }
 
-  .bigNumber {
-    font-size: 10rem;
+  .accordionWrapper {
+    gap: 1.2rem;
   }
 
-  .sessionCard {
-    padding: 1.8rem 1.8rem;
+  .drawerHeader {
+    padding: 1.5rem 1.5rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
   }
 
-  .sessionNum {
+  .drawerHeaderContent {
+    width: 100%;
+  }
+
+  .drawerTitleSection {
+    flex-wrap: wrap;
+  }
+
+  .drawerNumber {
+    font-size: 0.7rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .drawerTitle {
+    font-size: 1.2rem;
+  }
+
+  .drawerMeta {
+    gap: 1rem;
+  }
+
+  .metaItem {
     font-size: 0.8rem;
   }
 
+  .chevronIcon {
+    position: absolute;
+    top: 1.5rem;
+    left: 1.5rem;
+  }
+
+  .drawerInner {
+    padding: 0 1.5rem 1.8rem;
+  }
+
+  .sessionSection {
+    margin-bottom: 1.8rem;
+  }
+
+  .sessionHeader {
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+  }
+
+  .sessionBadge {
+    font-size: 0.65rem;
+  }
+
   .sessionTitle {
-    font-size: 1.15rem;
+    font-size: 1rem;
   }
 
   .item {
-    font-size: 1rem;
-    padding: 0.85rem 1rem;
+    padding: 0.7rem 0.9rem;
+    font-size: 0.9rem;
+    gap: 0.85rem;
+  }
+
+  .itemIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .bonusSection {
+    padding: 1.3rem 1.5rem;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.8rem;
+  }
+
+  .bonusIcon {
+    width: 22px;
+    height: 22px;
   }
 
   .bonusText {
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .registerButton {
-    padding: 0.95rem 1.8rem;
-    font-size: 1rem;
+    padding: 0.9rem 1.8rem;
+    font-size: 0.9rem;
+    gap: 0.7rem;
+  }
+
+  .buttonIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .helpButtonWrapper {
+    margin: 2rem auto 0;
+  }
+
+  .helpButton {
+    padding: 1rem 2rem;
+    font-size: 0.95rem;
+    gap: 0.75rem;
+  }
+
+  .helpButtonIcon {
+    width: 20px;
+    height: 20px;
   }
 }

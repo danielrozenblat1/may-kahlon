@@ -41,6 +41,10 @@ import nanoblading2 from "../../images/מאי כחלון נאנובליידינ�
 import nanoblading3 from "../../images/מאי כחלון נאנובליידינג 3.png";
 import nanoblading4 from "../../images/מאי כחלון נאנובליידינג 4.png";
 import nanoblading5 from "../../images/מאי כחלון נאנובליידינג 5.png";
+import nanoblading6 from "../../images/מאי כחלון נאנובליידינג 16.png";
+import nanoblading9 from "../../images/מאי כחלון נאנובליידינג 9.png";
+import nanoblading7 from "../../images/מאי כחלון נאנובליידינג 7.png";
+import nanoblading8 from "../../images/מאי כחלון נאנובליידינג 8.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -72,7 +76,7 @@ const treatments = [
     icon: Sparkles,
     color: '#b89968',
     mainImage: lashLift2,
-    galleryImages: [lashLift2, lashLift3, lashLift5, lashLift7],
+    galleryImages: [lashLift1, lashLift2, lashLift3, lashLift5, lashLift7],
     suitableFor: [
       'בעלות ריסים ישרים או נפולים',
       'מי שמחפשות חלופה לתוספות ריסים',
@@ -114,7 +118,7 @@ const treatments = [
     icon: Heart,
     color: '#e8c9a8',
     mainImage: nanoblading3,
-    galleryImages: [nanoblading2, nanoblading3, nanoblading4, nanoblading5],
+    galleryImages: [nanoblading1, nanoblading2, nanoblading3, nanoblading4, nanoblading5, nanoblading6, nanoblading7, nanoblading8, nanoblading9],
     suitableFor: [
       'נשים המעוניינות במראה מושלם תמיד',
       'מי שחוסכות זמן באיפור יומיומי',
@@ -246,12 +250,12 @@ const TreatmentCard = ({ treatment, index, isOpen, onToggle }) => {
                       />
                     </div>
 
-                    {/* Mini Gallery */}
+                    {/* Mini Gallery - כל התמונות */}
                     <div className={styles.galleryContainer}>
                       <h4>גלריית תמונות:</h4>
-                      <p className={styles.galleryTip}>לחצי על כל תמונה כדי לפתוח אותה בגודל מלא</p> {/* הדגש החדש */}
+                      <p className={styles.galleryTip}>לחצי על כל תמונה כדי לפתוח אותה בגודל מלא</p>
                       <div className={styles.imageGallery}>
-                        {treatment.galleryImages.slice(0, 4).map((image, i) => (
+                        {treatment.galleryImages.map((image, i) => (
                           <motion.div
                             key={i}
                             className={styles.galleryImage}
@@ -322,7 +326,7 @@ const TreatmentCard = ({ treatment, index, isOpen, onToggle }) => {
                   </div>
                 </div>
 
-                {/* כפתור פניה - הועבר לכאן, בתחתית serviceDetails */}
+                {/* כפתור פניה */}
                 <motion.div 
                   className={styles.ctaButtonWrapper}
                   initial={{ opacity: 0, y: 20 }}

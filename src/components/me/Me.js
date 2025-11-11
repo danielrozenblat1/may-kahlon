@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './Me.module.css';
-import maiPhoto from "../../images/מאי כחלון ראשית.png"; 
+import maiPhoto from "../../images/מאי כחלון ראשית 4.png"; 
 import ScrollReveal from 'scrollreveal';
 import Works from '../recommends/Works';
 import Rissim from '../recommends/Rissim';
