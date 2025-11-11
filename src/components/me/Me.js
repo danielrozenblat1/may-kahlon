@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import styles from './Me.module.css';
-import maiPhoto from "../../images/מאי כחלון ראשית 4.png"; 
+import maiPhoto from "../../images/מאי כחלון ראשית.png"; 
 import ScrollReveal from 'scrollreveal';
 import Works from '../recommends/Works';
 import Rissim from '../recommends/Rissim';
@@ -38,15 +38,13 @@ const AboutMe = () => {
     };
   }, []);
 
-  // Handle button click to navigate to form
-  const handleFormNavigation = () => {
-    const formElement = document.getElementById('טופס'); 
-    if (formElement) {
-      formElement.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
+  // Handle button click to navigate to WhatsApp
+  const handleWhatsAppClick = () => {
+    const phoneNumber = '972544884729'; // מספר הטלפון בפורמט בינלאומי
+    const message = 'היי מאי הגעתי מהדף שלך, אשמח לשמוע עוד על...';
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    
+    window.open(whatsappUrl, '_blank');
   };
 
   return (
@@ -102,7 +100,7 @@ const AboutMe = () => {
 
             <button 
               className={styles.ctaButton}
-              onClick={handleFormNavigation}
+              onClick={handleWhatsAppClick}
             >
               <span className={styles.buttonIcon}>💬</span>
               המסע שלנו מתחיל בלחיצה כאן

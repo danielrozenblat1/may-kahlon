@@ -34,7 +34,7 @@ import lashExtension2 from "../../images/מאי כחלון הדבקת ריסים
 import lashExtensionBA1 from "../../images/מאי כחלון הדבקת ריסים לפני אחרי 1.png";
 import lashExtensionBA2 from "../../images/מאי כחלון הדבקת ריסים לפני אחרי 2.png";
 import lashExtensionBA3 from "../../images/מאי כחלון הדבקת ריסים לפני אחרי 3.png";
-
+import lashExtensionBA4 from "../../images/מאי כחלון הדבקת ריסים תמונה ראשית.png";
 // Import images for נאנובליידינג (איפור קבוע)
 import nanoblading1 from "../../images/מאי כחלון נאנובליידינג 1.png";
 import nanoblading2 from "../../images/מאי כחלון נאנובליידינג 2.png";
@@ -96,8 +96,8 @@ const treatments = [
     name: 'הדבקת ריסים',
     icon: Zap,
     color: '#d4b896',
-    mainImage: lashExtension1,
-    galleryImages: [lashExtension2, lashExtensionBA1, lashExtensionBA2, lashExtensionBA3],
+    mainImage: lashExtensionBA4,
+    galleryImages: [lashExtension2,lashExtension1, lashExtensionBA1, lashExtensionBA2, lashExtensionBA3,lashExtensionBA4],
     suitableFor: [
       'מי שרוצות ריסים ארוכים ומרשימים',
       'נשים לקראת אירוע מיוחד',
@@ -117,7 +117,7 @@ const treatments = [
     name: 'איפור קבוע - נאנובליידינג',
     icon: Heart,
     color: '#e8c9a8',
-    mainImage: nanoblading3,
+    mainImage: nanoblading6,
     galleryImages: [nanoblading1, nanoblading2, nanoblading3, nanoblading4, nanoblading5, nanoblading6, nanoblading7, nanoblading8, nanoblading9],
     suitableFor: [
       'נשים המעוניינות במראה מושלם תמיד',
