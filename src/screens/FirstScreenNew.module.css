@@ -198,12 +198,12 @@
 @media (min-width: 550px) {
     .leftImage {
         display: block;
-        background-image: url('../images/מאי\ חלון\ תמונה\ צדדית.png');
-       
+        /* background-image: url('../images/מאי\ חלון\ תמונה\ צדדית.png');
+        */
     }
     .rightImage {
         display: block;
-        background-image: url('../images/מאי\ חלון\ תמונה\ צדדית.png');
+        /* background-image: url('../images/מאי\ חלון\ תמונה\ צדדית.png'); */
        
     }
     .contentBox {

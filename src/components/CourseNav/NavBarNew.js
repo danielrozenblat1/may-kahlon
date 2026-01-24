@@ -19,7 +19,7 @@ const NavBarNew = () => {
   const reasonRef = useRef(null);
 
   const serverUrl = "https://dynamic-server-dfc88e1f1c54.herokuapp.com/leads/newLead";
-  const reciver = "shelimeir998@gmail.com";
+  const reciver = "Maykahlon111@gmail.com";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -237,10 +237,10 @@ const NavBarNew = () => {
                   קראתי את
                   <span onClick={handlePrivacyClick}>
                 <PrivacyPolicy 
-  ownerName="שלי מאיר" 
-  email="shelimeir998@gmail.com" 
-  phone="053-621-6926" 
-  domain="https://shelimeir-academy.co.il/" 
+  ownerName="מאי כחלון" 
+ 
+  phone="+972544884729" 
+  domain="https://maykahlon.co.il/" 
 />
                   </span>
                   ואני מאשר/ת
@@ -252,7 +252,7 @@ const NavBarNew = () => {
                 className={`${styles.submitButton} ${isSubmitting ? styles.submitting : ''} ${submitted ? styles.submitted : ''}`}
                 disabled={isSubmitting || submitted}
               >
-                {isSubmitting ? 'שולח...' : submitted ? 'נשלח בהצלחה!' : 'שלי, בואי נדבר!'}
+                {isSubmitting ? 'שולח...' : submitted ? 'נשלח בהצלחה!' : 'מאי, בואי נדבר!'}
               </button>
             </form>
           </div>
